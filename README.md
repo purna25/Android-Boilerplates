@@ -89,3 +89,21 @@ public static void checkPermission(String permission, int requestCode, Context c
     }
 }
 ```
+
+
+### Network connectivity
+In the ***Application*** tag of the ***Manifest*** file.
+```
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+```
+and the **res/xml/network_security_config.xml**
+```
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">http://192.168.43.142</domain>
+    </domain-config>
+</network-security-config>
+```
